@@ -17,7 +17,7 @@
 
 ## Summary
 
-* 提供了一种直接向SIM7000发送AT命令的方法
+* 提供了一种直接向SIM7600发送AT命令的方法
 
 ## Installation
 
@@ -569,4 +569,4 @@ Meag2560 |         √    |              |            |
 
 ## Credits
 
-- Written by   ( @dfrobot.com), 2023. (Welcome to our [website](https://www.dfrobot.com/))
+- Written by   Baikunlin( kunlin.bai@dfrobot.com), 2023. (Welcome to our [website](https://www.dfrobot.com/))
