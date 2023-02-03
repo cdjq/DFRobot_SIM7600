@@ -968,19 +968,19 @@ String DFRobot_SIM7600::GPSFormulaConversion(const char* lat,const char* log)
   int logIndex = size-1;
   int logRemainder = log[size-2]-48;
   for(uint8_t i = 0;i < strlen(log)-size;i++){
-	  if(log[logIndex] == '.'){
-		  logIndex++;
+    if(log[logIndex] == '.'){
+      logIndex++;
+    }
+    logBuff += String( ( ( (int)(log[logIndex]-48) + (logRemainder*10) )/6) );
+    logRemainder = ((int)(log[logIndex]-48)+(logRemainder*10))%6;
+    logIndex++;
+    if(logIndex==int(strlen(log))){
+      if(logRemainder*10%6*10/6>=5){
+        logBuff += String(logRemainder*10/6+1);
+      }else{
+        logBuff += String(logRemainder*10/6);
 	  }
-	  logBuff += String( ( ( (int)(log[logIndex]-48) + (logRemainder*10) )/6) );
-	  logRemainder = ((int)(log[logIndex]-48)+(logRemainder*10))%6;
-	  logIndex++;
-	  if(logIndex==int(strlen(log))){
-		if(logRemainder*10%6*10/6>=5){
-		  logBuff += String(logRemainder*10/6+1);
-		}else{
-		  logBuff += String(logRemainder*10/6);
-		}
-	  }
+    }
   }
  
   String logString = logDegree+'.'+logBuff; 
