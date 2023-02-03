@@ -1,0 +1,84 @@
+#######################################
+# Syntax Coloring Map For DFRobot_SIM7600
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DFRobot_SIM7600	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################	
+
+
+makeEcall		KEYWORD2
+hangUpEcall	KEYWORD2
+setPosition	KEYWORD2
+enableLAN	KEYWORD2
+setLANmode	KEYWORD2
+setLANconfigure	KEYWORD2
+callDialNumber	KEYWORD2
+callAnswer	KEYWORD2
+disconnectCall	KEYWORD2
+selectPhonebookStorage	KEYWORD2
+findPhonebook	KEYWORD2
+writePhonebook	KEYWORD2
+mqttConnect	KEYWORD2
+mqttDisconnect	KEYWORD2
+mqttPublish	KEYWORD2
+mqttSubscribe	KEYWORD2
+mqttUnsubscribe	KEYWORD2
+checkSIMStatus	KEYWORD2
+setNetMode	KEYWORD2
+setBaudRate	KEYWORD2
+httpConnect	KEYWORD2
+httpDisconnect	KEYWORD2
+httpPost		KEYWORD2
+httpGet		KEYWORD2
+httpRead		KEYWORD2
+startGPS		KEYWORD2
+stopGPS		KEYWORD2
+getGPS		KEYWORD2
+stopTCPIP		KEYWORD2
+tcpipConnect	KEYWORD2
+sendTCPIP	KEYWORD2
+retrieveTCPIP	KEYWORD2
+setPhoneFunctiona	KEYWORD2
+querySignal	KEYWORD2
+sendMessage	KEYWORD2
+readMessage	KEYWORD2
+textToSpeechTTS	KEYWORD2
+recordWavAudio	KEYWORD2
+stopRecording	KEYWORD2
+playAudio	KEYWORD2
+audioPlayStop	KEYWORD2
+startSSL		KEYWORD2
+stopSSL		KEYWORD2
+connectSSL	KEYWORD2
+disconnectSSL	KEYWORD2
+sendSSL		KEYWORD2
+readSSL		KEYWORD2
+startFTPS 		KEYWORD2
+stopFTPS		KEYWORD2
+loginToFTPS	KEYWORD2
+logoutFTPS	KEYWORD2
+getFTPSDirectory	KEYWORD2
+setHTPInfo	KEYWORD2
+updatingDateTime	KEYWORD2
+updateSystemTime	KEYWORD2
+netRegistrationStatus	KEYWORD2
+GPSFormulaConversion	KEYWORD2
+GPSDataProcessing		KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+
+eGSM	LITERAL1
+eLTE	LITERAL1
+#######################################
+
+eGPRS	LITERAL1
+eNB	LITERAL1
