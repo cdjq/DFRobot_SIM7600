@@ -21,7 +21,7 @@
 #define PIN_TX       8
 #define PIN_RX       7
 
-
+//SoftwareSerial     mySerial(8,7);
 SoftwareSerial     mySerial(PIN_RX,PIN_TX);
 DFRobot_SIM7600    sim7600(&mySerial);
 
@@ -32,7 +32,8 @@ void setup() {
   Serial.println("Set baud rate......");
   while (1){
     if(sim7600.setBaudRate(19200)){                           //Set SIM7600 baud rate to 19200
-      Serial.println("Set baud rate:19200");                   
+      Serial.println("Set baud rate:19200");
+      break;                   
     }else{
       Serial.println("Faile to set baud rate");
       delay(1000);
