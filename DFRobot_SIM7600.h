@@ -48,6 +48,21 @@ class DFRobot_SIM7600 : public DFRobot_SIMcore
   DFRobot_SIM7600(Stream *s);
   ~DFRobot_SIM7600(){};
 	
+  
+  /**
+   * @fn turnON
+   * @brief 开机
+   * @return bool类型 返回指令操作是否成功
+   */
+  bool turnON(void);
+  
+  /**
+   * @fn turnOFF
+   * @brief 关机
+   * @return bool类型 返回指令操作是否成功
+   */
+  bool turnOFF(void);
+  
   /**
    * @fn makeEcall
    * @brief 进行电子呼叫

@@ -22,26 +22,33 @@
 #define PASSWORD        "b5HY4K0VRz"
 
 
-#define PIN_TX     8
-#define PIN_RX     7
+//如果是Arduino Leonardo 软串口RX引脚为D8
+//SoftwareSerial     mySerial(8,7);
+SoftwareSerial     mySerial(7,8);
 
 DFRobot_BMX160 bmx160;
 
-SoftwareSerial     mySerial(PIN_RX,PIN_TX);
 DFRobot_SIM7600    sim7600(&mySerial);
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  mySerial.begin(19200);
+  mySerial.begin(9600);           //SIM7600默认波特率9600
 
   if (bmx160.begin() != true){                                 //初始化I2C传感器
     Serial.println("init false");
     while(1);
   }
+
+  Serial.println("Turn ON SIM7600......");
+  if(sim7600.turnON()){                                    //Turn ON SIM7000
+    Serial.println("Turn ON !");
+  }
+
   Serial.println("Set baud rate......");
   while (1){
     if(sim7600.setBaudRate(19200)){                            //Set SIM7600 baud rate to 19200
+      mySerial.begin(19200);
       Serial.println("Set baud rate:19200");
       break;
     }else{
@@ -102,8 +109,8 @@ void loop() {
   
   String Saccel =" x: "+ String(Oaccel.x)+" y: "+String(Oaccel.y)+" z: "+String(Oaccel.z)+"m/s^2";
   
-  char   Caccel[Saccel.length()];
-  Saccel.toCharArray(Caccel, Saccel.length());
+  char   Caccel[Saccel.length()+1];
+  Saccel.toCharArray(Caccel, Saccel.length()+1);
 
   if(sim7600.mqttPublish(TOPIC, Caccel)){                   //将I2C信息发送到TOPIC主题
     Serial.println("Send OK");

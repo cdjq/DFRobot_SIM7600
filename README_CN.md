@@ -31,6 +31,20 @@
 
 ```C++
   /**
+   * @fn turnON
+   * @brief 开机
+   * @return bool类型 返回指令操作是否成功
+   */
+  bool turnON(void);
+  
+  /**
+   * @fn turnOFF
+   * @brief 关机
+   * @return bool类型 返回指令操作是否成功
+   */
+  bool turnOFF(void);
+
+  /**
    * @fn DFRobot_SIM7600
    * @brief DFRobot_SIMcore constructor of abstract class. Construct serial ports.
    * @param s The pointer to abstract class, where you can fill in the pointer to serial object.

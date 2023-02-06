@@ -5,6 +5,33 @@ DFRobot_SIM7600::DFRobot_SIM7600(Stream *s):DFRobot_SIMcore(s)
   _s = s;
 }
 
+
+bool DFRobot_SIM7600::turnON(void){
+  pinMode(12,OUTPUT);
+  if(checkSendCmd("AT\r\n", "OK", 100)){
+    sendCmd("AT+CPOF\r\n");
+    delay(4000);
+  }
+  delay(100);
+  digitalWrite(12, HIGH);
+  delay(1000);
+  digitalWrite(12, LOW);
+  delay(7000);
+  if(checkSendCmd("AT\r\n", "OK", 100)){
+    return true;
+  }
+  return false;
+}
+
+
+bool DFRobot_SIM7600::turnOFF(void){
+  if(checkSendCmd("AT+CPOF\r\n","OK")){
+    return true;
+  }
+  return false;
+}
+
+
 bool DFRobot_SIM7600::makeEcall(const char *num)
 {
   sendCmd("AT+CECALLS=");

@@ -13,6 +13,8 @@ DFRobot_SIM7600	KEYWORD1
 #######################################	
 
 
+turnON		KEYWORD2
+turnOFF		KEYWORD2
 makeEcall		KEYWORD2
 hangUpEcall	KEYWORD2
 setPosition	KEYWORD2
