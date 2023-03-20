@@ -14,9 +14,14 @@
 #include <DFRobot_SIM7600.h>
 
 //This URL is use for post data to tlink
-#define POSTURL      "https://www.baidu.com"
-//This URL is use for get data from tlink
-#define GETURL       "https://www.baidu.com"
+#define POSTURL   "api.tlink.io/tlink_interface/api/device/createDataPonit.htm"
+//This URL is use for get data from tlink, please change the SENSORID to your sensorsId
+#define GETURL    "api.tlink.io/tlink_interface/api/device//getDataPoint_SENEORID.htm"
+
+//Login website (https://www.tlink.io/) to register an account ,fill the following information based on your account
+#define deviceNo  "DEVICE NO" //Device serial number
+#define sensorsId "SENSOR ID" //sensor ID
+#define value     "VALUE"
 
 //如果是Arduino Leonardo 软串口RX引脚为8，TX为7
 //SoftwareSerial     mySerial(8,7);
@@ -73,7 +78,16 @@ void setup() {
 
   Serial.print("POST to ");
   Serial.println(POSTURL);
-  char data[] = "data";
+  String httpbuff;
+  httpbuff += "{\"deviceNo\":\"";                          //{
+  httpbuff += deviceNo;                                    //   "deviceNo" : "DEVICE NO",
+  httpbuff += "\",\"sensorDatas\":[{\"sensorsId\":";       //      "sensorDatas":[{
+  httpbuff += sensorsId;                                   //          "sensorsId" :  SENSOR ID,
+  httpbuff += ",\"value\":\"";                             //          "value"     : "  VALUE  "
+  httpbuff += value;                                       //       }]
+  httpbuff += "\"}]}";
+  char data[httpbuff.length()+1];
+  httpbuff.toCharArray(data,httpbuff.length()+1);
   if(sim7600.httpPost(POSTURL,data)){                       //HTTP POST
     Serial.println("Connected !");
     }else{
